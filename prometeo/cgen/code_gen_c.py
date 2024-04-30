@@ -2717,7 +2717,7 @@ class SourceGenerator(ExplicitNodeVisitor):
         # print(node.func.id)
         if my_isinstance(node.func, ast.Name):
             if node.func.id in self.casadi_funs:
-                import pdb; pdb.set_trace()
+                pass
 
         # treat print separately
         if hasattr(node.func, 'id'):

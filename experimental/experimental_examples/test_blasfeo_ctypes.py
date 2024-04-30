@@ -56,8 +56,6 @@ for i in range(n):
     B[0][i*(n + 1)] = 1.0
 
 sB = blasfeo_dmat()
-
-import pdb; pdb.set_trace()
 bw.blasfeo_allocate_dmat(n, n, byref(sB))
 bw.blasfeo_create_dmat(n, n, byref(sB), ptr_memory_strmat)
 bw.blasfeo_pack_dmat(n, n, B[0], n, byref(sB), 0, 0);
