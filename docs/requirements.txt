@@ -1,1 +1,2 @@
 sphinx-rtd-theme
+security==1.2.1
