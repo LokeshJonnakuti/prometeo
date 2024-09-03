@@ -22,6 +22,7 @@ import time
 import re
 from collections import OrderedDict
 import numexpr
+from security import safe_command
 
 size_of_pointer = 8
 size_of_int = 4
@@ -491,7 +492,7 @@ def pmt_main():
             raise Exception('Running on unsupported operating system {}'.format(running_on))
 
         tic = time.time()
-        proc = subprocess.Popen([cmd], shell=True, stdout=subprocess.PIPE)
+        proc = safe_command.run(subprocess.Popen, [cmd], shell=True, stdout=subprocess.PIPE)
 
         try:
             outs, errs = proc.communicate()
