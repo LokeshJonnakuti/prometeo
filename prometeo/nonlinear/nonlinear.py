@@ -114,7 +114,7 @@ class pfun:
         import pdb; pdb.set_trace()
 
         # render templated wrapper
-        env = Environment(loader=FileSystemLoader(os.path.dirname(os.path.abspath(__file__))))
+        env = Environment(loader=FileSystemLoader(os.path.dirname(os.path.abspath(__file__))), autoescape=True)
         tmpl = env.get_template("casadi_wrapper.c.in")
         code = tmpl.render(fun_descriptor = fun_descriptor)
         with open('casadi_wrapper_' + scoped_fun_name + '.c', "w+") as f:
