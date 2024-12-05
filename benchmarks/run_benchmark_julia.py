@@ -3,6 +3,7 @@ import subprocess
 import json
 import matplotlib
 import matplotlib.pyplot as plt
+from security import safe_command
 
 NM = range(2,150,4)
 # NM = range(2,20,2)
@@ -30,7 +31,7 @@ if RUN:
         else:
             NREP = NREP_large
 
-        proc = subprocess.Popen([f"julia -q --project=. test_riccati.jl {NM[i]} {NREP}"], shell=True, stdout=subprocess.PIPE)
+        proc = safe_command.run(subprocess.Popen, [f"julia -q --project=. test_riccati.jl {NM[i]} {NREP}"], shell=True, stdout=subprocess.PIPE)
 
         try:
             outs, errs = proc.communicate()
